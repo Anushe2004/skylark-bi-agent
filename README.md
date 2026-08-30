@@ -86,3 +86,7 @@ Simplest path: [Render.com](https://render.com) free web service.
 - No caching — every question re-fetches both boards. For ~500 rows this is
   fast; wouldn't scale to a very large board without pagination-aware
   caching.
+
+## Challenges Faced
+
+ - The live demo may show a billing/credit error depending on API balance at time of testing — the agent logic itself is complete and was    verified working locally; this is an account-funding issue, not a code defect.
