@@ -35,7 +35,12 @@ data quality that affect confidence in the answer.
 
 class Agent:
     def __init__(self):
-        self.client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+        workspace_id = os.environ.get("ANTHROPIC_WORKSPACE_ID")
+        extra_headers = {"anthropic-workspace-id": workspace_id} if workspace_id else {}
+        self.client = anthropic.Anthropic(
+            api_key=os.environ.get("ANTHROPIC_API_KEY"),
+            default_headers=extra_headers,
+        )
         self.history = []
 
     def ask(self, user_message):
